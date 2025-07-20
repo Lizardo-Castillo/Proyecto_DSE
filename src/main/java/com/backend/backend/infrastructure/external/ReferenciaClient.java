@@ -1,5 +1,11 @@
 package com.backend.backend.infrastructure.external;
 
-public class ReferenciaClient {
+import org.springframework.stereotype.Component;
 
+@Component
+public class ReferenciaClient {
+    public String buscarCentroAlternativo(String especialidad) {
+        // Simular búsqueda de otro centro
+        return "Hospital Nacional Guillermo Almenara";
+    }
 }
