@@ -35,3 +35,9 @@ Este informe documenta las pruebas realizadas al endpoint de programación de ci
   "centroAsignado": "Centro Médico Sur",
   "mensaje": "Su cita ha sido registrada correctamente"
 }
+
+📊 Resultados de las Pruebas
+
+https://github.com/user-attachments/assets/b85cd1c5-faae-434a-8b13-a03a22b81007
+
+https://github.com/user-attachments/assets/6d504828-8005-41e8-8a11-da6e83acc8f7
