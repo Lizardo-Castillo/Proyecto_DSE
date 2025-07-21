@@ -23,21 +23,20 @@ Este informe documenta las pruebas realizadas al endpoint de programación de ci
 - **Body + Response (JSON):**
 
 ```json
-// ➤ Body de la solicitud
 {
   "paciente": "Juan Pérez",
   "especialidad": "Pediatría",
   "fecha": "2025-07-22"
 }
 
-// ➤ Respuesta esperada
 {
   "centroAsignado": "Centro Médico Sur",
   "mensaje": "Su cita ha sido registrada correctamente"
 }
 
+
 📊 Resultados de las Pruebas
 
-https://github.com/user-attachments/assets/b85cd1c5-faae-434a-8b13-a03a22b81007
+<img width="577" height="267" alt="Image" src="https://github.com/user-attachments/assets/b85cd1c5-faae-434a-8b13-a03a22b81007" />
 
-https://github.com/user-attachments/assets/6d504828-8005-41e8-8a11-da6e83acc8f7
+<img width="787" height="162" alt="Image" src="https://github.com/user-attachments/assets/6d504828-8005-41e8-8a11-da6e83acc8f7" />
