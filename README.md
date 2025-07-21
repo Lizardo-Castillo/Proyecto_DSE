@@ -8,7 +8,7 @@ Este informe documenta las pruebas realizadas al endpoint de programación de ci
 
 - **URL Base:** `https://c86702cb-c8bb-4b35-9248-cb...` *(valor dinámico)*
 - **Entorno:** `LocalDev - Mock Proyecto_DSE`
-
+<img width="577" height="267" alt="Image" src="https://github.com/user-attachments/assets/b85cd1c5-faae-434a-8b13-a03a22b81007" />
 ---
 
 ## 🧪 Caso de Prueba: Programar Cita
