@@ -2,6 +2,7 @@ package com.backend.backend.service.impl;
 
 import org.springframework.stereotype.Service;
 
+import com.backend.backend.domain.model.Cita;
 import com.backend.backend.domain.repository.CitaRepository;
 import com.backend.backend.dto.CitaResponse;
 import com.backend.backend.infrastructure.external.NotificacionClient;
@@ -24,15 +25,24 @@ public class CitaServiceImpl implements CitaService {
 
     @Override
     public CitaResponse programarCita(CitaRequest request) {
-        
-        CitaResponse response = new CitaResponse();
+        // 1. Crear entidad Cita desde los datos del request
+        Cita cita = new Cita();
+        cita.setDni(request.getDni());
+        cita.setFecha(request.getFechaDeseada());
+        cita.setEspecialidad(request.getEspecialidad());
+        cita.setCentroAsignado("Centro de Salud Principal");  // Puedes personalizar si quieres
 
-        response.setAsegurado(true); // Assuming the user is insured
+        // 2. Guardar la cita en la base de datos
+        citaRepository.save(cita);
+
+        // 3. Construir y devolver la respuesta
+        CitaResponse response = new CitaResponse();
+        response.setAsegurado(true);
         response.setEstado("Confirmado");
-        response.setCentroAsignado("Centro de Salud Principal"); // Example center
-        response.setFechaConfirmada(request.getFechaDeseada());
+        response.setCentroAsignado(cita.getCentroAsignado());
+        response.setFechaConfirmada(cita.getFecha());
         response.setMensaje("Cita programada exitosamente");
-        
+
         return response;
     }
 }

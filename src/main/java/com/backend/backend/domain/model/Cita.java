@@ -43,4 +43,7 @@ public class Cita {
     public String getCentroAsignado() {
         return centroAsignado;
     }
+    public void setCentroAsignado(String centroAsignado) {
+        this.centroAsignado = centroAsignado;
+    }
 }
