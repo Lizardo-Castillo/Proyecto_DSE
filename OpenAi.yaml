@@ -1,0 +1,66 @@
+openapi: 3.0.3
+info:
+  title: Postman to OpenAPI
+  description: >-
+    # Getting started
+
+
+    The easiest way to get started with this collection is to click the fork
+    button to fork this collection to your own workspace and use Postman to send
+    requests.
+
+
+    # Usage
+
+
+    1. [Generate a Postman API
+    key](https://learning.postman.com/docs/developer/intro-api/)
+
+
+    2. Fetch the ID of the Collection you wish to convert. This can be found by
+    selecting the Collection in Postman, navigating to the right-hand sidebar,
+    clicking the `Info` tab (symbolized by the `i` icon), and copying the ID.
+
+
+    3. Update the `Current value` for the associated [collection
+    variables](https://learning.postman.com/docs/sending-requests/variables/#defining-collection-variables)
+    in this collection  with the Postman API key and Collection ID you just
+    retrieved.
+
+
+    4. Run the [Generate an OpenAPI
+    Schema](https://www.postman.com/postman/workspace/405e0480-49cf-463b-8052-6c0d05a8e8f3/request/5922408-3b169388-c199-43d0-8247-721b312c0da4)
+    request. In the response pane, click `Visualize`.
+
+
+    5. Make use of your freshly converted schema!
+  version: 1.0.0
+  contact: {}
+servers:
+  - url: https://api.getpostman.com
+paths:
+  /collections/{collectionId}:
+    get:
+      summary: Generate an OpenAPI Schema
+      description: >-
+        View the [complete collection
+        documentation](https://www.postman.com/postman/workspace/postman-public-workspace/documentation/5922408-f21e770c-7d3b-4092-bdd6-288bb1d8d825)
+        to understand how this collection works.
+      operationId: generateAnOpenapiSchema
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+            example: ''
+      responses:
+        '200':
+          description: ''
+    parameters:
+      - name: collectionId
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 46951528-891201d9-f802-4e75-92f0-880abdbff481
+tags: []
