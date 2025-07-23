@@ -65,44 +65,48 @@ Todos los cambios están versionados y documentados con mensajes de commit claro
 * `feature/programar-cita`: Funcionalidad específica del proceso de agendamiento.
 * `feature/notificaciones`: Gestión de envío de correos electrónicos al paciente.
 
-# 📋 Informe de Pruebas API - Sistema de Citas Médicas
 
-Este informe documenta las pruebas realizadas al endpoint de programación de citas médicas (`/citas`) utilizando el método `POST`. Las pruebas se llevaron a cabo en un entorno de pruebas API (como Postman o similar).
+### 📮 Pruebas con Postman
 
----
+Para probar el endpoint `POST /api/citas`, se ha creado una colección de Postman lista para importar. Incluye un ejemplo de solicitud y tests automatizados que verifican el comportamiento de la API.
 
-## ⚙️ Configuración del Entorno
+📁 La colección se encuentra en la carpeta [`postman/`](./postman/) del repositorio:
 
-- **URL Base:** `https://c86702cb-c8bb-4b35-9248-cb...` *(valor dinámico)*
-- **Entorno:** `LocalDev - Mock Proyecto_DSE`
----
+```
+postman/
+└── postman(Hospital).json
+```
 
-## 🧪 Caso de Prueba: Programar Cita
-
-### 🔹 Request
-
-- **Método:** `POST`  
-- **Endpoint:** `/citas`  
-- **Headers:**
-  - `Authorization`: *No especificado*
-  - *8 headers adicionales no detallados*
-- **Body + Response (JSON):**
+#### 🚀 Ejemplo de solicitud
 
 ```json
-{
-  "paciente": "Juan Pérez",
-  "especialidad": "Pediatría",
-  "fecha": "2025-07-22"
-}
+POST /api/citas
+Content-Type: application/json
 
 {
-  "centroAsignado": "Centro Médico Sur",
-  "mensaje": "Su cita ha sido registrada correctamente"
+  "dni": "12345678",
+  "fecha": "2025-07-22",
+  "especialidad": "Pediatría",
+  "fechaDeseada": "2025-07-30"
 }
 ```
 
-📊 Resultados de las Pruebas
+#### ✅ Tests incluidos
 
-<img width="577" height="267" alt="Image" src="https://github.com/user-attachments/assets/b85cd1c5-faae-434a-8b13-a03a22b81007" />
+```javascript
+pm.test("Código de estado 200", function () {
+    pm.response.to.have.status(200);
+});
 
-<img width="787" height="162" alt="Image" src="https://github.com/user-attachments/assets/6d504828-8005-41e8-8a11-da6e83acc8f7" />
+pm.test("Respuesta contiene los campos esperados", function () {
+    const json = pm.response.json();
+    pm.expect(json).to.have.property("asegurado");
+    pm.expect(json).to.have.property("estado");
+    pm.expect(json).to.have.property("centroAsignado");
+    pm.expect(json).to.have.property("fechaConfirmada");
+    pm.expect(json).to.have.property("mensaje");
+});
+```
+
+💡 Puedes importar la colección en Postman usando el botón **"Import"** y cargando el archivo `.json`. Luego, presiona **"Send"** para probar el endpoint directamente desde la interfaz.
+
