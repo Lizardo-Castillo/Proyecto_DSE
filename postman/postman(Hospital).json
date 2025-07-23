@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "b32b4840-f0d7-4728-a0ad-a258b348ce4e",
+		"name": "Hospital - API Citas, Médicos y Pacientes (con tests)",
+		"description": "Colección para probar y validar los endpoints principales con pruebas automáticas en Postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37340628"
+	},
+	"item": [
+		{
+			"name": "Programar Cita",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Código de estado 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Respuesta contiene campos esperados\", function () {",
+							"    const json = pm.response.json();",
+							"    pm.expect(json).to.have.property(\"centroAsignado\");",
+							"    pm.expect(json).to.have.property(\"mensaje\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"dni\": \"12345678\",\n  \"fecha\": \"2025-07-22\",\n  \"especialidad\": \"Pediatría\",\n  \"fechaDeseada\": \"2025-07-30\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/citas",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"citas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar Médico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Código de estado 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Médico creado correctamente\", function () {",
+							"    const json = pm.response.json();",
+							"    pm.expect(json).to.have.property(\"id\");",
+							"    pm.expect(json).to.have.property(\"nombre\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Dr. Juan Pérez\",\n  \"correo\": \"juan.perez@hospital.com\",\n  \"numeroColegiatura\": \"CMP123456\",\n  \"especialidad\": \"Cardiología\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/medicos",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"medicos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar Paciente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Código de estado 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Paciente creado correctamente\", function () {",
+							"    const json = pm.response.json();",
+							"    pm.expect(json).to.have.property(\"dni\");",
+							"    pm.expect(json).to.have.property(\"nombres\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"dni\": \"12345678\",\n  \"nombres\": \"Juan\",\n  \"apellidos\": \"Pérez\",\n  \"correo\": \"juan@example.com\",\n  \"telefono\": \"987654321\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/pacientes",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"pacientes"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,14 @@
+{
+	"id": "42f7773b-209b-4e0e-b814-2481a80a8133",
+	"name": "hospital-localhost",
+	"values": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8070",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2025-07-23T06:28:33.213Z",
+	"_postman_exported_using": "Postman/11.55.2"
+}
