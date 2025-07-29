@@ -2,7 +2,7 @@ package com.backend.backend.dto;
 
 public class CitaRequest {
 
-    private Integer dni;
+    private String dni;
     private String nombre;
     private String apellidoPaterno;
     private String apellidoMaterno;
@@ -12,8 +12,8 @@ public class CitaRequest {
     private String fecha;
 
     // Getters y Setters
-    public Integer getDni() { return dni; }
-    public void setDni(Integer dni) { this.dni = dni; }
+    public String getDni() { return dni; }
+    public void setDni(String dni) { this.dni = dni; }
 
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }

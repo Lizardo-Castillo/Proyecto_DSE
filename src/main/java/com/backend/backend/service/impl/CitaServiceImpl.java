@@ -1,9 +1,9 @@
 package com.backend.backend.service.impl;
 
 import com.backend.backend.domain.model.Cita;
+import com.backend.backend.domain.repository.CitaRepository;
 import com.backend.backend.dto.CitaRequest;
 import com.backend.backend.dto.CitaResponse;
-import com.backend.backend.infrastructure.repository.CitaRepository;
 import com.backend.backend.service.CitaService;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +28,16 @@ public class CitaServiceImpl implements CitaService {
         cita.setCorreo(request.getCorreo());
         cita.setFecha(request.getFecha());
 
-        citaRepository.save(cita);
+        // Guardar en BD
+        Cita citaGuardada = citaRepository.save(cita);
 
         return new CitaResponse(
-                "Cita registrada para: " + request.getNombre() + " " + request.getApellidoPaterno(),
-                request.getFecha()
+                citaGuardada.getId(),
+                citaGuardada.getDni(),
+                citaGuardada.getNombre(),
+                citaGuardada.getEspecialidad(),
+                citaGuardada.getFecha(),
+                "Cita programada correctamente"
         );
     }
 }

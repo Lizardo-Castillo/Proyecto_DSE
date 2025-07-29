@@ -1,6 +1,8 @@
 package com.backend.backend.domain.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -9,8 +11,10 @@ import jakarta.persistence.Table;
 public class Cita {
 
     @Id
-    private Integer dni;           // Clave primaria
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  // ID autogenerado
+    private Long id;
 
+    private String dni;
     private String nombre;
     private String apellidoPaterno;
     private String apellidoMaterno;
@@ -19,9 +23,12 @@ public class Cita {
     private String correo;
     private String fecha;
 
-    // Getters y Setters
-    public Integer getDni() { return dni; }
-    public void setDni(Integer dni) { this.dni = dni; }
+    // ===== Getters y Setters =====
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public String getDni() { return dni; }
+    public void setDni(String dni) { this.dni = dni; }
 
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }
