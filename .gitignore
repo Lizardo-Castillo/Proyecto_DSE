@@ -34,3 +34,6 @@ build/
 
 # Ignorar configuración local de Spring Boot
 src/main/resources/application.properties
+
+# Ignorar Postman con posibles secretos
+postman/OpenAPI.json
