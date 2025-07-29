@@ -82,8 +82,21 @@ src/
 - `Especialidad.java`: Catálogo de especialidades médicas.
 - Repositorios JPA para cada entidad.
 
+
 #### 📋 Modelado de Procesos BPMN
 Se diseñaron diagramas de procesos en **BonitaSoft Studio** para automatizar el flujo de programación de citas, notificaciones y gestión de pacientes.
+
+##### Diagramas BPMN implementados
+
+<p align="center">
+  <b>Consulta de Seguro</b><br>
+  <img src="./docs/bonita_consulta_seguro.jpeg" alt="Diagrama BPMN Consulta Seguro" width="700"/>
+</p>
+
+<p align="center">
+  <b>Programar Cita</b><br>
+  <img src="./docs/bonita_programar_cita.jpeg" alt="Diagrama BPMN Programar Cita" width="700"/>
+</p>
 
 Los objetos de dominio encapsulan la lógica central y permiten separar responsabilidades entre capas de presentación, aplicación e infraestructura.
 
