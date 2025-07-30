@@ -243,6 +243,12 @@ pm.test("Respuesta contiene campos esperados", function () {
 
 ---
 
+### Error del SonarQube
+
+<img width="986" height="397" alt="error" src="https://github.com/user-attachments/assets/ba3fe32a-a363-416d-ad72-9944a0a228d9" />
+
+---
+
 ### 📄 Notas 
 
 - Se diseñaron y modelaron procesos BPMN en BonitaSoft Studio para la automatización de flujos.
