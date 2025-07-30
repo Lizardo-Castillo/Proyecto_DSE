@@ -1,22 +1,112 @@
-## 🏥 Repositorio del Proyecto: **Programación de Citas Médicas - EsSalud**
 
-### � Tecnologías y Herramientas Utilizadas
+## 🏥 Proyecto BPMN y Servicios Web - Programación de Citas Médicas
 
-- **Spring Boot** (Backend, API REST)
-- **PostgreSQL** (Base de datos relacional)
-- **BonitaSoft Studio** (Modelado y automatización de procesos BPMN)
-- **Swagger/OpenAPI** (Documentación y pruebas de la API)
-- **Postman** (Pruebas automatizadas de endpoints)
+### 👥 Equipo de Trabajo
 
-### �📌 Propósito
+- Lizardo Manuel Castillo Llaza
+- Karla Veronica Cornejo Pari
+- Jose Alejandro Machaca Muniz
 
+### 🏢 Cliente
 
-Este proyecto tiene como objetivo modelar, implementar y documentar el proceso de negocio **"Programar una Cita Médica"** utilizando prácticas de **DDD (Domain-Driven Design)** y una arquitectura basada en capas, mediante el framework **Spring Boot** y una base de datos **PostgreSQL**. Además, se diseñaron y automatizaron diagramas de procesos BPMN en **BonitaSoft Studio** para la gestión de flujos de negocio. Se busca mejorar la modularidad, escalabilidad y mantenibilidad del sistema de agendamiento de citas médicas para la organización **EsSalud**.
+- **Organización Ficticia:** EsSalud
 
 ---
 
+### 🎯 Propósito del Proyecto
+
+Modelar, automatizar y exponer como servicios web el proceso de **programación de citas médicas** para EsSalud, integrando BPMN (BonitaSoft Studio), arquitectura DDD y servicios REST documentados con Swagger/OpenAPI.
 
 ---
+
+### 🌐 Visión General
+
+- **Aplicación BPM:** Página de aplicación y menú para gestión de procesos de citas, asegurados, médicos y pacientes.
+- **Automatización:** Diagramas BPMN en BonitaSoft Studio para la gestión de flujos de negocio.
+- **Backend:** Servicios RESTful con Spring Boot y PostgreSQL, siguiendo DDD y arquitectura en capas.
+
+---
+
+### 🧱 Visión General de Arquitectura (DDD)
+
+- **Modelo de Dominio:** Entidades como Cita, Asegurado, Médico, Paciente, Especialidad.
+- **Capas:** Presentación (REST), Aplicación (Servicios), Dominio (Modelos), Infraestructura (Persistencia y externos).
+- **Repositorio Backend:** [GitHub Proyecto DSE (Backend)](https://github.com/Lizardo-Castillo/Proyecto_DSE.git)
+- **Repositorio BPMN:** [GitHub EsSalud_Bonita (BonitaSoft)](https://github.com/KarlaCornejo/EsSalud_Bonita.git)
+
+---
+
+### � Procesos de Negocio
+
+#### 1. Consulta de Seguro
+- **Descripción:** Permite validar si un paciente está asegurado antes de programar una cita.
+- **Diagrama BPMN:**  
+  <p align="center">
+    <img src="./docs/bonita_consulta_seguro.jpeg" alt="Diagrama BPMN Consulta Seguro" width="700"/>
+  </p>
+
+#### 2. Programar Cita
+- **Descripción:** Gestiona la reserva de citas médicas, validando disponibilidad y notificando al paciente.
+- **Diagrama BPMN:**  
+  <p align="center">
+    <img src="./docs/bonita_programar_cita.jpeg" alt="Diagrama BPMN Programar Cita" width="700"/>
+  </p>
+
+---
+
+### 🚀 Principales Servicios REST (Swagger/OpenAPI)
+
+#### Módulo: Citas <Gestión de citas médicas>
+- **Operaciones:**
+  - `GET /api/citas`  
+    - Listar todas las citas.
+    - Parámetros: Ninguno.
+  - `POST /api/citas`  
+    - Registrar una nueva cita.
+    - Parámetros (body JSON):
+      - `apellidoMaterno` (string)
+      - `apellidoPaterno` (string)
+      - `correo` (string)
+      - `dni` (string)
+      - `especialidad` (string)
+      - `fecha` (string)
+      - `nombre` (string)
+      - `telefono` (string)
+
+#### Módulo: Asegurados <Gestión de asegurados>
+- Registrar y consultar asegurados.
+
+#### Módulo: Médicos <Gestión de médicos>
+- Registrar y consultar médicos.
+
+#### Módulo: Pacientes <Gestión de pacientes>
+- Registrar y consultar pacientes.
+
+#### Módulo: Notificaciones <Envío de notificaciones>
+- Notificar al paciente sobre la cita.
+
+---
+
+### 🗂️ Modelos: Entidades y Agregados Clave
+
+- **Cita:** { id, dni, nombre, apellidos, especialidad, fecha, correo, teléfono }
+- **Asegurado:** { dni, credencial }
+- **Médico:** { id, nombre, correo, especialidad, numeroColegiatura }
+- **Paciente:** { id, dni, nombres, apellidos, correo, teléfono }
+- **Especialidad:** { código, nombre }
+
+---
+
+### 🔗 URL Repositorio
+
+- [Repositorio GitHub Proyecto DSE (Backend)](https://github.com/Lizardo-Castillo/Proyecto_DSE.git)
+- [Repositorio GitHub EsSalud_Bonita (BPMN)](https://github.com/KarlaCornejo/EsSalud_Bonita.git)
+
+---
+
+### 🗺️ Diagrama de Composición de Servicios
+
+- Los procesos BPMN orquestan los servicios REST de asegurados, citas, médicos y notificaciones, permitiendo la integración y automatización de la gestión de citas médicas.
 
 ### 🧱 Vista General de Arquitectura y Módulos
 
