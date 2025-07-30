@@ -243,15 +243,7 @@ pm.test("Respuesta contiene campos esperados", function () {
 
 ---
 
-### 👥 Equipo de Trabajo
-
-- Lizardo Manuel Castillo Llaza
-- Karla Veronica Cornejo Pari
-- Jose Alejandro Machaca Muniz
-
----
-
-### 📄 Notas adicionales
+### 📄 Notas 
 
 - Se diseñaron y modelaron procesos BPMN en BonitaSoft Studio para la automatización de flujos.
 - El backend expone endpoints REST documentados con Swagger/OpenAPI.
